@@ -57,7 +57,7 @@ According to the utilized method of classification, some parameters need to be d
 
 * **Run algorithm:** 
 
-In the last step, based on the prefered algorithm and defined parameters, the model is generated and the weight vector for the last iteration, the corresoinding loss function, and the mean accuracy score of the model on the validation data are reported. This is achieved in two simple steps:
+In the last step, based on the prefered algorithm and defined parameters, the model is generated and the weight vector for the last iteration, the corresoinding loss function, and the mean accuracy score of the model on the validation data are reported. This is achieved in **_two_** simple steps:
 
 **1. Cross Validation:** 
 
@@ -103,7 +103,7 @@ After choosing the algorithm and corresponding parameters, the folowwong functio
 
 ## List of Implemented Methods:
 
-**Least Square GD**
+# Least Square GD
 
 In the run code:
 
@@ -133,7 +133,7 @@ Underlying function:
          loss: Loss function calculated for the method [float]
 
 
-**Least Square SGD**
+# Least Square SGD
 
 In the run code:
 
@@ -163,7 +163,7 @@ Underlying function:
          loss: Loss function calculated for the method [float]
 
 
-**Least Square Normal Equation**
+# Least Square Normal Equation
 
 In the run code:
 
@@ -191,7 +191,7 @@ Underlying function:
         loss: Loss function calculated for the method [float]
 
 
-**Ridge Regression**
+# Ridge Regression
 
 In the run code:
 
@@ -220,7 +220,7 @@ Underlying function:
         loss: Loss function calculated for the method [float]  
 
 
-**Logistic Regression**
+# Logistic Regression
 
 In the run code:
 
@@ -252,7 +252,7 @@ Underlying function:
 
 
 
-**Regularized Logistic Regression**
+# Regularized Logistic Regression
 
 In the run code:
 
