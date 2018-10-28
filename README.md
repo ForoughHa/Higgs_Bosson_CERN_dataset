@@ -287,7 +287,7 @@ Underlying function:
         
 ## Inner Functions of The Toolkit
 
-**Load .csv data to a numpy array:
+**Load .csv data to a numpy array:**
 
 `load_csv(filename)`
 
@@ -300,7 +300,7 @@ Underlying function:
         dataset: Loaded dataset [numpy array]
 
 
-**Normalize dataset columns to the range 0-1
+**Normalize dataset columns to the range (0,1)**
 
 _Note that this function was not utilized on our toolkit for the dataset in hand.
 
@@ -315,7 +315,7 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
          dataset: Normalized dataset with all elements of each data point in range of (0,1) [numpy]
 
 
-**Standardize dataset columns
+**Standardize dataset columns**
 
 `standardize_dataset(dataset)`
 
@@ -327,7 +327,7 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
  
          dataset: Standardize dataset [numpy]
 
-**Calculate accuracy percentage using actual and predicted labels
+**Calculate accuracy percentage using actual and predicted labels**
 
 `accuracy_metric(actual, predicted)`
 
@@ -341,7 +341,7 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
          accuracy: Accuracy score in percentage [float] 
 
 
-**Calculate yhat predictions and apply sigmoid function on predicted labels
+**Calculate yhat predictions and apply sigmoid function on predicted labels**
 
 `predict_sigmoid(data, coefficients)`
 
@@ -354,7 +354,7 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
 
         yhat: Predicted labels [float]
 
-**Bound outliers in dataset
+**Bound outliers in dataset**
 
 `data_bounded(X_d, times_SE=3.0)`
   
@@ -367,7 +367,7 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
         X_bounded: Bounded data matrix [Numpy Array]
         
 
-**Clean undefined, unmeasured, or invalid data
+**Clean undefined, unmeasured, or invalid data**
 
 `data_cleaning(X)`
 
