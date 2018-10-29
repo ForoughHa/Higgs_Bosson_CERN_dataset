@@ -430,7 +430,7 @@ In the last step, we apply all the cleaning and preparation steps on our test se
 
 **3. Reza Hosseini Kouh Kamari**
 
-All members contributed to the coding and report writing related tasks equally.
+All members contributed equally to the coding and report writing tasks.
 
 
 
