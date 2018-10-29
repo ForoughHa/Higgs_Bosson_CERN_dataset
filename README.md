@@ -8,13 +8,26 @@ This toolkit will provide a set of implemented methods for a binary classifier. 
 * Regularized logistic regression using gradient descent: _reg_logistic_regression_
 * Ridge regression using normal equations: _ridge_regression_
 
+The toolkit contains to _.py_ files named **_run.py_** and **_implementation.py_**.
+
 ## Dataset
 The default dataset used for this project, are provided with the online competition based on one of the most
 popular machine learning challenges recently: **_Finding the Higgs boson_**, using original data from CERN.
 
 _Note_ that you can apply all the implemented methods on your own dataset for a binary classification.
 
-# Application
+# Usage
+
+To perform the classification on _Finding the Higgs boson_ data, after choosing your prefered algorithm and un-commenting the corresponding line, you need to just run the **_run.py**_ file provided. 
+
+### Output:
+
+You will get the **Accuracy Score (scores)** on the train data, **Loss Function (loss)** of the chosen algorithm in the last iteration, corresponding **Weight Vector (coefficients)** and the file containing predicted labels for the test data named **_testLabels_**. 
+
+* The **_implementation.py_** file contains all the implemented functions used to design this machine learning system. You can also directly utilize them for a costumize task. All these functions and the corresponding input and output arguments are discussed in the following sections in detail.
+
+
+# Inside Look
 
 ## Data Preparation
 As the first step of the process, the dataset must be prepared to be fed into different methods. This step includes:
@@ -49,7 +62,7 @@ Standardizes the data by substracting the mean value and deviding by standard de
 
 `tx = data_bounded(X, times_SE = 3.0)`
 
-Bounds the data and clears outliers.  _times_SE_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
+Bounds the data and clears outliers.  _times_SE = 3.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
 
 * **Initialize parameters:** 
 
