@@ -41,6 +41,7 @@ The function `load_csv('dataset.csv')` is implemented in the toolbox for this st
 * **Cleaning your dataset:** If you choose to also clear your dataset of possoble outliers and invalid features, both training and test sets must go under feature proccessing steps. This procedure could include standardization, normalization, cleaning, and bounding your dataset.
 In the provided toolkit, this step is performed and specifically adapted to the **_Finding the Higgs boson_** dataset. The `data_cleaning(dataset)`, `standardize_dataset(dataset)`, and `data_bounded(dataset)` are customized to serve this cause on our dataset.
 
+* **Feature engineering and processing:** The cleaned data should then go under feature engineering steps to add interaction terms between each two features and quadratic and cubic terms and select the ones with highest correlation with label. Eventuallywe PCA can be performed as a dimension reduction step.
 
 The above two steps are introduced below in more detail: 
 
@@ -63,6 +64,16 @@ Standardizes the data by substracting the mean value and deviding by standard de
 `tx = data_bounded(X, times_SE = 4.0)`
 
 Bounds the data and clears outliers.  _times_SE = 4.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
+
+* **Engineer and process data:**
+
+`tx = feature_processing(tx, y, num_F=100)`
+
+Adds Interaction terms between each two features and quadratic and cubic terms and selects the 100 ones with highest correlation with label dataset.
+
+`tx = dimentionality_reduction(tx, num_D=30)`
+
+Performs PCA as a dimension reduction step and chooses the top 30 features.
 
 Now that the data is ready, it can be passed into the prefered algorithm with rest of the required parameters.
 
@@ -399,7 +410,64 @@ _Note that this function was not utilized on our toolkit for the dataset in hand
 * Outputs:
 
         X_c: Cleaned data [Numpy array]
+        
+        
+        
+        
+**Visualize different features as Violin plot**
+
+`Violin_plot(tx, filename='default_Violin')`
+
+ * Arguments:
+ 
+        tx : dataset with 'D' features in their columns (N x D) [Numpy Array]
+        filename : Filename for saving the plot as .png file  [String]
+ 
+**Visualize different features in Box Plot**
+
+`Box_plot(tx, filename='default_Box')`
+
+* Arguments:
+
+        tx : dataset with 'D' features in their columns (N x D) [Numpy Array]
+        filename : Filename for saving the plot as .png file [String]
+ 
+ **Visualize different features with regarding to their labels in Scatter Plots**
+ 
+`Scatter_plot(tx, y, filename='Default_scatter')`
+
+* Arguments:
+
+        tx : features dataset with 'D' features in their columns (N x D) [Numpy Array]
+        y : labels dataset with "N x 1" dimension [Numpy Array]
+        filename : Filename for saving the plot as .png file [String]
+        
+**Apply a PCA dimentionality reduction on the input dataset**   
+
+`dimentionality_reduction(tx, num_D=30)`
+
+* Arguments:
+
+        tx : dataset (without labels) to be reduced (NxD dimension, where N is number of observations and D is variables) [Numpy Array]
+        num_D : number of dimensions to be reduced [Integer]
     
+    Output:
+    
+        tx_red : Reduced dimentionality dataset [Numpy Array]
+        
+ **Engineer attributes (variables) to extract meaningful features for Classification**
+ 
+ `feature_processing(tx, y, num_F=60)`
+ 
+* Arguments:
+
+        tx : Dimensionality reduced dataset (without labels), with (Nxd) dimensions, where N is number of observations[Numpy array]
+        y: label sets (Nx1) [Numpy array]
+        num_f: Number of features to be selected [Integer]
+    
+* Outputs:
+
+        tx_features [Numpy array]: Engineered features to be used for ML algorithm (NxL dimension, where L is new sets of features)
 
 
 ## Evaluate On Test Data
