@@ -60,9 +60,9 @@ Cleans the data set and replaces the unmeasured values (i.e. -999) with the mean
 
 Standardizes the data by substracting the mean value and deviding by standard deviation with respect to different features.
 
-`tx = data_bounded(X, times_SE = 3.0)`
+`tx = data_bounded(X, times_SE = 4.0)`
 
-Bounds the data and clears outliers.  _times_SE = 3.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
+Bounds the data and clears outliers.  _times_SE = 4.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
 
 Now that the data is ready, it can be passed into the prefered algorithm with rest of the required parameters.
 
