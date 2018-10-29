@@ -29,7 +29,7 @@ You will get the **Accuracy Score (scores)** on the train data, **Loss Function 
 
 # Inside Look
 
-The follosing steps construct the body of the _run.py_ script.
+The follosing steps construct the body of the **_run.py_** script.
 
 
 ## Data Preparation
@@ -120,6 +120,8 @@ After choosing the algorithm and corresponding parameters, the folowwong functio
          
 
 ## List of Implemented Methods:
+
+You can find all the following functions defined in the **_implementation.py_** file.
 
 ### Least Square GD
 
