@@ -29,6 +29,9 @@ You will get the **Accuracy Score (scores)** on the train data, **Loss Function 
 
 # Inside Look
 
+The follosing steps construct the body of the _run.py_ script.
+
+
 ## Data Preparation
 As the first step of the process, the dataset must be prepared to be fed into different methods. This step includes:
 * **Loading your dataset:** The data set must be in the form of a matrix _x_ with dimentions _N <a href="http://www.codecogs.com/eqnedit.php?latex=\times" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\times" title="\times" /></a> D_ where _N_ corresponds to the number of samples and _D_ is the dimension of features for each sample. Moreover, the corresponding labels of the training data must be in the form of a _N <a href="http://www.codecogs.com/eqnedit.php?latex=\times" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\times" title="\times" /></a> 1_ binray vector.
@@ -38,11 +41,8 @@ The function `load_csv('dataset.csv')` is implemented in the toolbox for this st
 * **Cleaning your dataset:** If you choose to also clear your dataset of possoble outliers and invalid features, both training and test sets must go under feature proccessing steps. This procedure could include standardization, normalization, cleaning, and bounding your dataset.
 In the provided toolkit, this step is performed and specifically adapted to the **_Finding the Higgs boson_** dataset. The `data_cleaning(dataset)`, `standardize_dataset(dataset)`, and `data_bounded(dataset)` are customized to serve this cause on our dataset.
 
-Now that the data is ready, it can be passed into the prefered algorithm with rest of the required parameters.
 
-## Evaluate Algorithm
-
-The follosing steps construct the body of the _run.py_ script.
+The above two steps are introduced below in more detail: 
 
 * **Load and prepare data:**
 
@@ -63,6 +63,11 @@ Standardizes the data by substracting the mean value and deviding by standard de
 `tx = data_bounded(X, times_SE = 3.0)`
 
 Bounds the data and clears outliers.  _times_SE = 3.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
+
+Now that the data is ready, it can be passed into the prefered algorithm with rest of the required parameters.
+
+## Evaluate Algorithm
+
 
 * **Initialize parameters:** 
 
