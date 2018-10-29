@@ -8,7 +8,7 @@ This toolkit will provide a set of implemented methods for a binary classifier. 
 * Regularized logistic regression using gradient descent: _reg_logistic_regression_
 * Ridge regression using normal equations: _ridge_regression_
 
-The toolkit contains to _.py_ files named **_run.py_** and **_implementation.py_**.
+The toolkit contains two _.py_ files named **_run.py_** and **_implementation.py_**.
 
 ## Dataset
 The default dataset used for this project, are provided with the online competition based on one of the most
