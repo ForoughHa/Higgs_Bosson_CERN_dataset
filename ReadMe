@@ -1,0 +1,89 @@
+# Introduction
+ 
+This toolkit will provide a set of implemented methods for a binary classifier. You will have access to fully functioning implementations of all the following methods and can choose your prefered algorithm for the final classification task.
+* Linear regression using gradient descent: _least_squares_
+* Linear regression using stochastic gradient descent: _least_squares_GD_
+* Least squares regression using normal equations: _least_squares_SGD_
+* Logistic regression using gradient descent: _logistic_regression_
+* Regularized logistic regression using gradient descent: _reg_logistic_regression_
+* Ridge regression using normal equations: _ridge_regression_
+
+The toolkit contains two _.py_ files named **_run.py_** and **_implementation.py_**.
+
+## Dataset
+The default dataset used for this project, are provided with the online competition based on one of the most
+popular machine learning challenges recently: **_Finding the Higgs boson_**, using original data from CERN.
+
+_Note_ that you can apply all the implemented methods on your own dataset for a binary classification.
+
+# Usage
+
+To perform the classification on _Finding the Higgs boson_ data, after choosing your prefered algorithm and un-commenting the corresponding line, you need to just run the **_run.py**_ file provided. 
+
+### Output:
+
+You will get the **Accuracy Score (scores)** on the train data, **Loss Function (loss)** of the chosen algorithm in the last iteration, corresponding **Weight Vector (coefficients)** and the file containing predicted labels for the test data named **_testLabels_**. 
+
+* The **_implementation.py_** file contains all the implemented functions used to design this machine learning system. You can also directly utilize them for a costumize task. All these functions and the corresponding input and output arguments are discussed in the following sections in detail.
+
+
+# Inside Look
+
+The follosing steps construct the body of the **_run.py_** script.
+
+
+## Data Preparation
+As the first step of the process, the dataset must be prepared to be fed into different methods. This step includes:
+* **Loading your dataset:** The data set must be in the form of a matrix _x_ with dimentions _N <a href="http://www.codecogs.com/eqnedit.php?latex=\times" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\times" title="\times" /></a> D_ where _N_ corresponds to the number of samples and _D_ is the dimension of features for each sample. Moreover, the corresponding labels of the training data must be in the form of a _N <a href="http://www.codecogs.com/eqnedit.php?latex=\times" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\times" title="\times" /></a> 1_ binray vector.
+The function `load_csv('dataset.csv')` is implemented in the toolbox for this step. 
+
+
+* **Cleaning your dataset:** If you choose to also clear your dataset of possoble outliers and invalid features, both training and test sets must go under feature proccessing steps. This procedure could include standardization, normalization, cleaning, and bounding your dataset.
+In the provided toolkit, this step is performed and specifically adapted to the **_Finding the Higgs boson_** dataset. The `data_cleaning(dataset)`, `standardize_dataset(dataset)`, and `data_bounded(dataset)` are customized to serve this cause on our dataset.
+
+* **Feature engineering and processing:** The cleaned data should then go under feature engineering steps to add interaction terms between each two features and quadratic and cubic terms and select the ones with highest correlation with label. Eventuallywe PCA can be performed as a dimension reduction step.
+
+The above two steps are introduced below in more detail: 
+
+* **Load and prepare data:**
+
+`train_data = load_csv('train.csv')`
+
+Following this function, the unwanted rows and columns in the .csv file are omitted while the labels are also extracted from the main dataset.
+
+* **Clean data:** 
+
+`X = data_cleaning(X)`
+
+Cleans the data set and replaces the unmeasured values (i.e. -999) with the mean value of that specific feature among properly measured samples.
+
+`X = standardize_dataset(X)`
+
+Standardizes the data by substracting the mean value and deviding by standard deviation with respect to different features.
+
+`tx = data_bounded(X, times_SE = 4.0)`
+
+Bounds the data and clears outliers.  _times_SE = 4.0_ refers to the maximum multiple of the standard error larger than which the features must be omitted.
+
+* **Engineer and process data:**
+
+`tx = feature_processing(tx, y, num_F=100)`
+
+Adds Interaction terms between each two features and quadratic and cubic terms and selects the 100 ones with highest correlation with label dataset.
+
+`tx = dimentionality_reduction(tx, num_D=30)`
+
+Performs PCA as a dimension reduction step and chooses the top 30 features.
+
+Now that the data is ready, it can be passed into the prefered algorithm with rest of the required parameters.
+
+## Evaluate Algorithm
+
+
+* **Initialize parameters:** 
+
+According to the utilized method of classification, some parameters need to be defined by the user and passed to the function. These include the step size, the initial weight vector, regularization parameter, etc. All these parameters will be discussed in more detail in the corresponding algorithm.
+
+* **Run algorithm:** 
+
+In the last step, based on the prefered algorithm and defined parameters, the model is generated and the weight vector for the last iteration, the corresoinding loss function, and the mean accuracy score of the model on the validation data are reported. This is achieved in **_two_** simple steps:
